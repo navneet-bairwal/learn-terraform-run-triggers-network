@@ -16,6 +16,9 @@ resource "aws_vpc" "example" {
 
   tags = {
     Project = var.project_tag
+    team = "testing"
+    service = "testing"
+    department = "testing"
   }
 }
 
