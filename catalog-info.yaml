@@ -1,0 +1,8 @@
+apiVersion: backstage.io/v1alpha1
+kind: TerraformWorkspace
+metadata:
+  name: ${{ values.name | dump }}
+spec:
+  type: terraform-workspace
+  owner: user:guest
+  lifecycle: experimental
