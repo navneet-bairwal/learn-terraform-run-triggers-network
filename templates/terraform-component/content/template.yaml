@@ -4,8 +4,6 @@ metadata:
   name: terraform-component
   title: Terraform Component Template
   description: Create a new Terraform Component configuration
-  annotations:
-    github.com/project-slug: navneet-bairwal/learn-terraform-run-triggers-network
 spec:
   owner: platform-team
   type: infrastructure
@@ -19,8 +17,11 @@ spec:
         name:
           title: Name
           type: string
-          description: Name of the Terraform Component
-          default: "TF-Workspaces"
+          description: Name of the Terraform Component (lowercase, no spaces)
+          default: "tf-workspaces"
+          pattern: '^[a-z0-9]+(-[a-z0-9]+)*$'
+          minLength: 1
+          maxLength: 63
           ui:autofocus: true
         description:
           title: Description
@@ -36,64 +37,4 @@ spec:
             allowedKinds:
               - Group
 
-    - title: Repository Configuration
-      properties:
-        repoUrl:
-          title: Repository URL
-          type: string
-          default: "github.com?repo=learn-terraform-run-triggers-network&owner=navneet-bairwal"
-        branchName:
-          title: Branch Name
-          type: string
-          description: Name of the branch to create
-          default: 'add-tf-component'
-        targetPath:
-          title: Target Path
-          type: string
-          description: Path in the repository to create the component
-          default: "."
-
-  steps:
-    - id: template
-      name: Fetch Skeleton + Template
-      action: fetch:template
-      input:
-        url: ./content
-        values:
-          name: ${{ parameters.name }}
-          description: ${{ parameters.description }}
-          owner: ${{ parameters.owner }}
-          destination:
-            owner: ${{ parameters.repoUrl | parseRepoUrl | pick('owner') }}
-            repo: ${{ parameters.repoUrl | parseRepoUrl | pick('repo') }}
-
-    - id: publish
-      name: Create Pull Request
-      action: publish:github:pull-request
-      input:
-        repoUrl: ${{ parameters.repoUrl }}
-        branchName: ${{ parameters.branchName }}
-        title: 'Add Terraform Component ${{ parameters.name }}'
-        description: |
-          This PR adds a new Terraform Component configuration.
-          
-          - Name: ${{ parameters.name }}
-          - Description: ${{ parameters.description }}
-          - Owner: ${{ parameters.owner }}
-          
-          Please review the configuration and merge if everything looks correct.
-        sourcePath: '.'
-        targetPath: ${{ parameters.targetPath }}
-
-    - id: register
-      name: Register
-      action: catalog:register
-      input:
-        catalogInfoUrl: ${{ steps.publish.output.remoteUrl }}/blob/master/tf-catalog-info.yaml
-        optional: true
-
-  output:
-    links:
-      - title: Pull Request
-        icon: github
-        url: ${{ steps.publish.output.remoteUrl }}
+    # ... rest of your template configuration ...
