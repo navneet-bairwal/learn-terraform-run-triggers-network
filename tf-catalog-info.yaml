@@ -4,9 +4,9 @@ metadata:
   name: TF-Workspaces
   description: A collection of Terraform workspaces managed via Backstage
   annotations:
-    github.com/project-slug: my-org/terraform-repo
+    github.com/project-slug: navneet-bairwal/learn-terraform-run-triggers-network/
     backstage.io/techdocs-ref: dir:.
-    github.com/actions: my-org/terraform-repo
+    github.com/actions: navneet-bairwal/learn-terraform-run-triggers-network/
 spec:
   type: infrastructure
   lifecycle: production
