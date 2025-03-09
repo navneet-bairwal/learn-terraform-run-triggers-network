@@ -8,6 +8,7 @@ metadata:
     backstage.io/techdocs-ref: dir:.
     github.com/actions: navneet-bairwal/learn-terraform-run-triggers-network/
     github.com/pull-requests: navneet-bairwal/learn-terraform-run-triggers-network/
+    github.com/workflows-in-repo: 'true'
 spec:
   type: infrastructure
   lifecycle: production
