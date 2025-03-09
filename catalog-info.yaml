@@ -1,8 +1,12 @@
 apiVersion: backstage.io/v1alpha1
 kind: TerraformWorkspace
 metadata:
-  name: terraform-workspace
+  name: test-workspace
+  annotations:
+    github.com/project-slug: navneet-bairwal/learn-terraform-run-triggers-network
+    backstage.io/source-location: url:https://github.com/navneet-bairwal/learn-terraform-run-triggers-network
 spec:
   type: terraform-workspace
-  owner: user:guest
-  lifecycle: experimental
+  owner: platform-team
+  system: terraform
+  lifecycle: experimental 
