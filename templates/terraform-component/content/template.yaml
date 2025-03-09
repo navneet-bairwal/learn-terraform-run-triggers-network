@@ -4,6 +4,10 @@ metadata:
   name: terraform-component
   title: Terraform Component Template
   description: Create a new Terraform Component configuration
+  links:
+    - url: http://localhost:3000/catalog/default/component/tf-workspaces
+      title: existing TF workspaces
+      icon: dashboard
 spec:
   owner: platform-team
   type: infrastructure
