@@ -1,13 +1,13 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: ${{values.name | lower | replace " " "-"}}
-  description: ${{values.description}}
+  name: tf-workspaces
+  description: A collection of Terraform workspaces managed via Backstage
   annotations:
-    github.com/project-slug: ${{values.destination.owner}}/${{values.destination.repo}}
+    github.com/project-slug: navneet-bairwal/learn-terraform-run-triggers-network
     backstage.io/techdocs-ref: dir:.
     github.com/workflows-in-repo: 'true'
 spec:
   type: infrastructure
   lifecycle: production
-  owner: ${{values.owner}}
+  owner: platform-team
