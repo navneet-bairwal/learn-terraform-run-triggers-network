@@ -1,8 +1,1 @@
-apiVersion: backstage.io/v1alpha1
-kind: TerraformWorkspace
-metadata:
-  name: terraform-workspace
-spec:
-  type: terraform-workspace
-  owner: user:guest
-  lifecycle: experimental
+
