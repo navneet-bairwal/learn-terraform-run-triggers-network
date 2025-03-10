@@ -1,0 +1,9 @@
+site_name: 'terraform-docs'
+
+nav:
+  - Home: index.md
+  - Setup: setup.md
+  - Usage: usage.md
+
+plugins:
+  - techdocs-core
