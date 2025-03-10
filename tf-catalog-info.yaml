@@ -7,6 +7,8 @@ metadata:
     github.com/project-slug: navneet-bairwal/learn-terraform-run-triggers-network
     backstage.io/techdocs-ref: dir:.
     github.com/workflows-in-repo: 'true'
+    terraform/organization: opengov
+    terraform/workspaces: opengov-administration-terraform-cloud
 spec:
   type: infrastructure
   lifecycle: production
