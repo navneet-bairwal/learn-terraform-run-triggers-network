@@ -1,11 +1,11 @@
-name: test-workspace-dev
-description: Test Terraform workspace configuration
-terraform_version: 1.7.0
+name: tf-workspaces-
+description: A collection of Terraform workspaces managed via Backstage
+terraform_version: 
 repo: navneet-bairwal/learn-terraform-run-triggers-network
 working_directory: .
-auto_apply_merged_plans: true
+auto_apply_merged_plans: 
 file_triggers_enabled: true
-project: test-workspace
+project: tf-workspaces
 variables:
   - name: TFC_AWS_PROVIDER_AUTH
     value: 'true'
@@ -16,14 +16,14 @@ variables:
     type: env
     description: AWS Run Role ARN
 tags:
-  - test-workspace
-  - terraform
-  - dev
+  - tf-workspaces
+  - 
+  - 
   - aws
 trigger_patterns:
   - ./*
 notifications:
   - type: slack
     name: terraform-alerts
-    url: https://hooks.slack.com/services/dummy-webhook
+    url: 
     triggers: [errored, needs_attention]
