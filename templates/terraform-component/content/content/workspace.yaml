@@ -1,0 +1,29 @@
+name: ${{ values.name }}-${{ values.environment }}
+description: ${{ values.description }}
+terraform_version: ${{ values.tfVersion }}
+repo: ${{ values.destination.owner }}/${{ values.destination.repo }}
+working_directory: ${{ values.workingDirectory | default('.') }}
+auto_apply_merged_plans: ${{ values.autoApply }}
+file_triggers_enabled: true
+project: ${{ values.name }}
+variables:
+  - name: TFC_AWS_PROVIDER_AUTH
+    value: 'true'
+    type: env
+    description: Enable Dynamic AWS Provider Authentication
+  - name: TFC_AWS_RUN_ROLE_ARN
+    value: ${{ values.awsRoleArn | default('arn:aws:iam::074780081734:role/tfAppRole') }}
+    type: env
+    description: AWS Run Role ARN
+tags:
+  - ${{ values.name }}
+  - ${{ values.system }}
+  - ${{ values.environment }}
+  - aws
+trigger_patterns:
+  - ${{ values.workingDirectory | default('.') }}/*
+notifications:
+  - type: slack
+    name: terraform-alerts
+    url: ${{ values.slackWebhookUrl }}
+    triggers: [errored, needs_attention]
